@@ -92,6 +92,17 @@ export class FetchApiDataService {
       .pipe(catchError(this.handleError));
   }
 
+  // API call to add fav movie to user endpoint
+  removeFavMovie(movieId: any): Observable<any> {
+    return this.http
+      .delete(apiUrl + `users/${userID}/watchlist/${movieId}`, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(catchError(this.handleError));
+  }
+
   // API call to get single user from endpoint
   getUser(userID: any): Observable<any> {
     return this.http
