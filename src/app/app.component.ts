@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 //
 import { RegistrationComponent } from './components/registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,13 @@ export class AppComponent {
   // This is the function that will open the dialog when the signup button is clicked
   openUserRegistrationDialog(): void {
     this.dialog.open(RegistrationComponent, {
+      // Assigning the dialog a width
+      width: '400px',
+    });
+  }
+
+  openUserLoginDialog(): void {
+    this.dialog.open(LoginComponent, {
       // Assigning the dialog a width
       width: '400px',
     });

@@ -1,4 +1,36 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <input type="text" />
-  <button type="submit">Submit</button>
-</form>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Log In!</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="userCredentials.Username"
+          placeholder="Username"
+          type="text"
+          name="Username"
+          required
+          required
+          minlength="5"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="userCredentials.Password"
+          type="password"
+          placeholder="Password"
+          name="Password"
+          required
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="logUserIn()" color="primary">
+      Sign Up
+    </button>
+  </mat-card-actions>
+</mat-card>
