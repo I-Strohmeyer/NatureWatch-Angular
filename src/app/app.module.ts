@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,12 +10,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 // Internal project files
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+
+const routes: Routes = [
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+];
 
 @NgModule({
   declarations: [
@@ -23,10 +33,13 @@ import { RegistrationComponent } from './components/registration/registration.co
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
+    WelcomePageComponent,
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatIconModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -36,6 +49,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     MatFormFieldModule,
     MatSnackBarModule,
     FormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],
