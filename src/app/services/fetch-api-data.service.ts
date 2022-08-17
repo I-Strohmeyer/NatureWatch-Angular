@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 const apiUrl = 'https://naturewatch-app.herokuapp.com/';
 
 const token = localStorage.getItem('token');
-const userID = localStorage.getItem('id');
+const userID = localStorage.getItem('userid');
 @Injectable({
   providedIn: 'root',
 })
@@ -45,7 +45,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to get a single movie from endpoint
@@ -56,7 +56,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to get genre info from endpoint
@@ -67,7 +67,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to get director info from endpoint
@@ -78,7 +78,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to add fav movie to user endpoint
@@ -89,7 +89,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to add fav movie to user endpoint
@@ -100,7 +100,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to get single user from endpoint
@@ -111,7 +111,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to update single user from endpoint
@@ -122,7 +122,7 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
   }
 
   // API call to delete single user from endpoint
@@ -133,7 +133,13 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResData), catchError(this.handleError));
+  }
+
+  // extract res data
+  private extractResData(res: any): any {
+    const body = res;
+    return body || {};
   }
 
   private handleError(error: HttpErrorResponse): any {

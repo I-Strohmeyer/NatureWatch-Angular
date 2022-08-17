@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
           duration: 2000,
         });
         localStorage.setItem('token', result.token);
-        localStorage.setItem('user', result.user.Username);
+        localStorage.setItem('username', result.user.Username);
+        localStorage.setItem('userid', result.user._id);
+        console.log(result.user.Username);
         this.router.navigate(['movies']);
       },
       (result) => {

@@ -1,0 +1,22 @@
+:host {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+
+  .mat-card {
+    border-radius: 0;
+  }
+
+  .mat-card-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    min-width: 300px;
+    height: 520px;
+    border: 1px solid black;
+  }
+}
