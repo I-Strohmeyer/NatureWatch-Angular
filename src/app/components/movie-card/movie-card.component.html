@@ -2,7 +2,8 @@
   <mat-dialog-content>
     <mat-card-subtitle class="image"
       ><img src="{{ movie.ImagePath }}" />
-      <mat-card-actions class="like-btn" (click)="addMovie()"
+      <!--<mat-card-actions class="like-btn" (click)="addMovie({ _id: movie.id })"-->
+      <mat-card-actions class="like-btn" (click)="addMovie(movie._id)"
         >Like <mat-icon>favorite_border</mat-icon></mat-card-actions
       ></mat-card-subtitle
     >

@@ -53,7 +53,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  addMovie(): void {
-    console.log('I like this movie!');
+  addMovie(id: string): void {
+    this.fetchApiData.addFavMovie(id).subscribe((result) => {
+      console.log('I like this movie!');
+      console.log(result);
+      this.ngOnInit();
+    });
   }
 }

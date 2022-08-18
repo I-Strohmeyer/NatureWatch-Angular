@@ -84,7 +84,7 @@ export class FetchApiDataService {
   // API call to add fav movie to user endpoint
   addFavMovie(movieId: any): Observable<any> {
     return this.http
-      .post(apiUrl + `users/${userID}/watchlist/${movieId}`, {
+      .post(apiUrl + `users/${userID}/watchlist/${movieId}`, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
