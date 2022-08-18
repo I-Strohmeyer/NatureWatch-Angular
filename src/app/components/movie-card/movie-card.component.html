@@ -1,6 +1,36 @@
 <mat-card *ngFor="let movie of movies; let i = index">
   <mat-dialog-content>
-    <mat-card-subtitle><img src="{{ movie.ImagePath }}" /></mat-card-subtitle>
+    <mat-card-subtitle class="image"
+      ><img src="{{ movie.ImagePath }}" />
+      <mat-card-actions class="like-btn" (click)="addMovie()"
+        >Like <mat-icon>favorite_border</mat-icon></mat-card-actions
+      ></mat-card-subtitle
+    >
     <mat-card-title>{{ movie.Title }}</mat-card-title>
+    <mat-card-subtitle
+      class="genre"
+      (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+      >{{ movie.Genre.Name }}</mat-card-subtitle
+    >
+    <mat-card-content>
+      <p>{{ movie.Description }}</p>
+      <div class="director">
+        <p>
+          Directed by:
+          <span
+            class="director-link"
+            (click)="
+              openDirectorDialog(
+                movie.Director.Name,
+                movie.Director.Bio,
+                movie.Director.Birth
+              )
+            "
+            >{{ movie.Director.Name }}</span
+          >
+        </p>
+        <p>{{ movie.Year }}</p>
+      </div>
+    </mat-card-content>
   </mat-dialog-content>
 </mat-card>

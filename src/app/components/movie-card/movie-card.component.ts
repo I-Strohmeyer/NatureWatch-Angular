@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../../services/fetch-api-data.service';
+import { DirectorDetailsComponent } from '../director-details/director-details.component';
+import { GenreDetailsComponent } from '../genre-details/genre-details.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +11,10 @@ import { FetchApiDataService } from '../../services/fetch-api-data.service';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -20,5 +26,34 @@ export class MovieCardComponent implements OnInit {
       console.log(this.movies);
       return this.movies;
     });
+  }
+
+  openGenreDialog(name: string, description: string): void {
+    this.dialog.open(GenreDetailsComponent, {
+      // pass data to component
+      data: {
+        Name: name,
+        Description: description,
+      },
+      // Assigning the dialog a width
+      width: '400px',
+    });
+  }
+
+  openDirectorDialog(name: string, bio: string, birth: Date): void {
+    this.dialog.open(DirectorDetailsComponent, {
+      // pass data to component
+      data: {
+        Name: name,
+        Bio: bio,
+        Birth: birth,
+      },
+      // Assigning the dialog a width
+      width: '400px',
+    });
+  }
+
+  addMovie(): void {
+    console.log('I like this movie!');
   }
 }

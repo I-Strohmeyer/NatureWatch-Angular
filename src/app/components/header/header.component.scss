@@ -20,4 +20,23 @@
     font-size: 1.8rem;
     font-family: "Playfair Display", serif;
   }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    li {
+      cursor: pointer;
+      margin-left: 12px;
+    }
+    & :hover {
+      text-decoration: underline;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
 }

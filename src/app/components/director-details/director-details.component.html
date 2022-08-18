@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>{{ data.Name }}</mat-card-title>
+  <mat-dialog-content>
+    <p>{{ data.Bio }}</p>
+    <p>{{ data.Birth }}</p>
+  </mat-dialog-content>
+  <mat-card-actions>
+    <button class="custom-btn" (click)="close()">Close</button>
+  </mat-card-actions>
+</mat-card>

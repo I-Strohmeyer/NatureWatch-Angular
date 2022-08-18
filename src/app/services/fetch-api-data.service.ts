@@ -115,9 +115,9 @@ export class FetchApiDataService {
   }
 
   // API call to update single user from endpoint
-  updateUser(userID: any, update: any): Observable<any> {
+  updateUser(userID: any, userData: any): Observable<any> {
     return this.http
-      .put(apiUrl + `users/${userID}`, update, {
+      .put(apiUrl + `users/${userID}`, userData, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -126,7 +126,7 @@ export class FetchApiDataService {
   }
 
   // API call to delete single user from endpoint
-  deleteUser(): Observable<any> {
+  deleteUser(userID: any): Observable<any> {
     return this.http
       .delete(apiUrl + `users/${userID}`, {
         headers: new HttpHeaders({

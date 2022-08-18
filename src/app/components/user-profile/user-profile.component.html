@@ -1,0 +1,24 @@
+<section class="profile">
+  <h2>
+    Profile
+    <span (click)="openUserEditDialog()">Edit<mat-icon>edit</mat-icon></span>
+  </h2>
+  <p>Username: {{ user.Username }}</p>
+  <p>E-Mail: {{ user.Email }}</p>
+  <mat-card-content> </mat-card-content>
+  <hr />
+  <p>
+    If you decide to delete your account, please keep the following in mind:
+  </p>
+  <p>
+    Your account will be permanently deleted, including your list of fav movies.
+  </p>
+  <button mat-raised-button (click)="deleteUser()" class="delete-btn">
+    Delete Account
+  </button>
+</section>
+<section class="movies">
+  <h2>Favorite movies</h2>
+  <p *ngIf="user.FavoriteMovies?.length == 0">You have no fav movies.</p>
+  <p *ngIf="user.FavoriteMovies?.length > 0">You have some fav movies saved.</p>
+</section>

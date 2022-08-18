@@ -19,10 +19,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { FetchApiDataService } from './services/fetch-api-data.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { GenreDetailsComponent } from './components/genre-details/genre-details.component';
+import { DirectorDetailsComponent } from './components/director-details/director-details.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -35,6 +41,10 @@ const routes: Routes = [
     RegistrationComponent,
     WelcomePageComponent,
     MovieCardComponent,
+    UserProfileComponent,
+    UserEditComponent,
+    GenreDetailsComponent,
+    DirectorDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +61,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [FetchApiDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

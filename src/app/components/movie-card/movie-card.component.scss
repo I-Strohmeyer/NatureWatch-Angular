@@ -1,22 +1,69 @@
 :host {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 20px;
 
   .mat-card {
     border-radius: 0;
+    max-width: 400px;
+    justify-self: center;
   }
 
-  .mat-card-subtitle {
+  .mat-card-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .image {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   img {
     min-width: 300px;
     height: 520px;
     border: 1px solid black;
+  }
+
+  .director {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  .director-link {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .genre {
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .like-btn {
+    border: 1px solid black;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    background-color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+
+    &:hover {
+      border: 1px solid white;
+      background-color: black;
+      color: white;
+    }
   }
 }
