@@ -12,6 +12,7 @@ import { UserEditComponent } from '../user-edit/user-edit.component';
 export class UserProfileComponent implements OnInit {
   user: any = {};
   movies: any[] = [];
+  favMovies: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -24,6 +25,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserData();
+    this.getMovies();
   }
 
   openUserEditDialog(): void {

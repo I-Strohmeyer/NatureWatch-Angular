@@ -2,11 +2,16 @@
   <mat-dialog-content>
     <mat-card-subtitle class="image"
       ><img src="{{ movie.ImagePath }}" />
-      <!--<mat-card-actions class="like-btn" (click)="addMovie({ _id: movie.id })"-->
+      <!--<mat-card-actions class="like-btn" (click)="addMovie({ _id: movie._id })"-->
       <mat-card-actions class="like-btn" (click)="addMovie(movie._id)"
-        >Like <mat-icon>favorite_border</mat-icon></mat-card-actions
-      ></mat-card-subtitle
-    >
+        >Like <mat-icon>favorite</mat-icon></mat-card-actions
+      >
+      <mat-card-actions
+        class="like-btn remove"
+        (click)="removeFavMovie(movie._id)"
+        >Remove <mat-icon>favorite_border</mat-icon></mat-card-actions
+      >
+    </mat-card-subtitle>
     <mat-card-title>{{ movie.Title }}</mat-card-title>
     <mat-card-subtitle
       class="genre"

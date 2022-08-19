@@ -20,5 +20,7 @@
 <section class="movies">
   <h2>Favorite movies</h2>
   <p *ngIf="user.FavoriteMovies?.length == 0">You have no fav movies.</p>
-  <p *ngIf="user.FavoriteMovies?.length > 0">You have some fav movies saved.</p>
+  <p *ngIf="user.FavoriteMovies?.length > 0">
+    You have {{ user.FavoriteMovies.length }} movies saved in your List.
+  </p>
 </section>

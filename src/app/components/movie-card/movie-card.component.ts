@@ -11,6 +11,9 @@ import { GenreDetailsComponent } from '../genre-details/genre-details.component'
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  user: any = {};
+  preFavMovies: any[] = [];
+  finalFavMovies: any[] = [];
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog
@@ -18,6 +21,8 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUserData();
+    //this.getFavMovies();
   }
 
   getMovies(): void {
@@ -25,6 +30,16 @@ export class MovieCardComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  getUserData(): void {
+    const userid = localStorage.getItem('userid');
+    this.fetchApiData.getUser(userid).subscribe((resp: any) => {
+      this.user = resp;
+      this.preFavMovies = this.user.FavoriteMovies;
+      console.log(this.user);
+      return this.user;
     });
   }
 
@@ -56,6 +71,32 @@ export class MovieCardComponent implements OnInit {
   addMovie(id: string): void {
     this.fetchApiData.addFavMovie(id).subscribe((result) => {
       console.log('I like this movie!');
+      console.log(result);
+      this.ngOnInit();
+    });
+  }
+
+  /**getFavMovies(): any[] {
+    //flatten user fav movie array of objects
+    let arrayOfIds = this.preFavMovies.map(function (obj: any) {
+      return obj._id;
+    });
+    console.log(arrayOfIds);
+    this.finalFavMovies = arrayOfIds;
+    console.log(this.finalFavMovies);
+    //return resultOfFavMovies;
+    return this.finalFavMovies;
+  }
+
+  //boolean check to see if a movie is included in users fav movies
+  isFav(id: any): boolean {
+    return this.finalFavMovies.includes(id);
+  } **/
+
+  removeFavMovie(id: string): void {
+    console.log(id);
+    this.fetchApiData.removeFavMovie(id).subscribe((result) => {
+      console.log('Remove this movie!');
       console.log(result);
       this.ngOnInit();
     });
