@@ -1,14 +1,14 @@
 <div class="main-page">
-  <h1>Welcome to NatureWatch!</h1>
-  <button
-    mat-raised-button
-    (click)="openUserRegistrationDialog()"
-    style="margin-right: 10px"
-    color="primary"
-  >
-    Sign Up
-  </button>
-  <button mat-raised-button (click)="openUserLoginDialog()" color="primary">
-    Login
-  </button>
+  <h1>Welcome to <span>Nature & Watch</span></h1>
+  <p>Sign up and login if you want to discover our selection of movies.</p>
+  <div class="btn-wrapper">
+    <button
+      class="custom-btn"
+      (click)="openUserRegistrationDialog()"
+      style="margin-right: 10px"
+    >
+      Sign Up
+    </button>
+    <button class="custom-btn" (click)="openUserLoginDialog()">Login</button>
+  </div>
 </div>

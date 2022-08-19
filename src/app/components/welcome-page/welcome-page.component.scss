@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 40px 20px;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/assets/login-bg-new2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+
+  .main-page {
+    //border: 1px solid blue;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 span {
+      font-family: "Playfair Display", serif;
+    }
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      margin-top: 40px;
+    }
+  }
+}
