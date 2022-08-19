@@ -11,7 +11,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class WelcomePageComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
-  // This is the function that will open the dialog when the signup button is clicked
+  // Function that will open the dialog when the signup button is clicked
   openUserRegistrationDialog(): void {
     this.dialog.open(RegistrationComponent, {
       // Assigning the dialog a width
@@ -19,6 +19,7 @@ export class WelcomePageComponent implements OnInit {
     });
   }
 
+  // Opens Login dialog
   openUserLoginDialog(): void {
     this.dialog.open(LoginComponent, {
       // Assigning the dialog a width

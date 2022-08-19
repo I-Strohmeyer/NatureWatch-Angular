@@ -19,15 +19,12 @@ export class UserProfileComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  //Actions:
-  // update profile
-  //delete profile
-
   ngOnInit(): void {
     this.getUserData();
     this.getMovies();
   }
 
+  // Opens user dialog
   openUserEditDialog(): void {
     this.dialog.open(UserEditComponent, {
       // Assigning the dialog a width
@@ -35,6 +32,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Gets all movies
+   * @function getMovies
+   * @returns array of movie objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -43,6 +45,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Gets single user  by id
+   * @function getUserData
+   * @params userid
+   */
   getUserData(): void {
     const userid = localStorage.getItem('userid');
     this.fetchApiData.getUser(userid).subscribe((resp: any) => {
@@ -52,6 +59,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes user by id
+   * @function deleteUser
+   * @params userid
+   */
   deleteUser(): void {
     const userid = localStorage.getItem('userid');
     this.fetchApiData.deleteUser(userid).subscribe((resp: any) => {

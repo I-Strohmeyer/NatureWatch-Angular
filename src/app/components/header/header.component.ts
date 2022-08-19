@@ -11,6 +11,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Logs user out
+   * by clearing localstorage
+   */
   logOut() {
     localStorage.clear();
     this.router.navigate(['/welcome']);

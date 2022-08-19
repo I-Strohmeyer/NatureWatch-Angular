@@ -22,9 +22,13 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     this.getMovies();
     this.getUserData();
-    //this.getFavMovies();
   }
 
+  /**
+   * Gets all movies and saving it to variable
+   * @returns array of movie objects
+   * @function getMovies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -33,6 +37,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Gets a single user by id
+   * @returns user object
+   * @function getUserData
+   * @param userid
+   */
   getUserData(): void {
     const userid = localStorage.getItem('userid');
     this.fetchApiData.getUser(userid).subscribe((resp: any) => {
@@ -43,6 +53,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  // Opens genre dialog
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreDetailsComponent, {
       // pass data to component
@@ -55,6 +66,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  // Opens director dialog
   openDirectorDialog(name: string, bio: string, birth: Date): void {
     this.dialog.open(DirectorDetailsComponent, {
       // pass data to component
@@ -68,6 +80,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Adds movie by id to user fav list
+   * @param id
+   * @returns array of id objects
+   */
   addMovie(id: string): void {
     this.fetchApiData.addFavMovie(id).subscribe((result) => {
       console.log('I like this movie!');
@@ -76,23 +93,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  /**getFavMovies(): any[] {
-    //flatten user fav movie array of objects
-    let arrayOfIds = this.preFavMovies.map(function (obj: any) {
-      return obj._id;
-    });
-    console.log(arrayOfIds);
-    this.finalFavMovies = arrayOfIds;
-    console.log(this.finalFavMovies);
-    //return resultOfFavMovies;
-    return this.finalFavMovies;
-  }
-
-  //boolean check to see if a movie is included in users fav movies
-  isFav(id: any): boolean {
-    return this.finalFavMovies.includes(id);
-  } **/
-
+  /**
+   * Removes movie by id from user fav list
+   * @param id
+   */
   removeFavMovie(id: string): void {
     console.log(id);
     this.fetchApiData.removeFavMovie(id).subscribe((result) => {

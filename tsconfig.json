@@ -16,17 +16,30 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/app/services/fetch-api-data.service.ts",
+      "src/app/components/director-details/director-details.component.ts",
+      "src/app/components/xx/xx.component.ts",
+      "src/app/components/genre-details/genre-details.component.ts",
+      "src/app/components/header/header.component.ts",
+      "src/app/components/login/login.component.ts",
+      "src/app/components/movie-card/movie-card.component.ts",
+      "src/app/components/registration/registration.component.ts",
+      "src/app/components/user-edit/user-edit.component.ts",
+      "src/app/components/user-profile/user-profile.component.ts",
+      "src/app/components/welcome-page/welcome-page.component.ts"
+    ],
+    "out": "docs"
   }
 }

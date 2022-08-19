@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  /**
+   * Receives data from template
+   */
   @Input() userCredentials = { Username: '', Password: '' };
 
   constructor(
@@ -27,6 +30,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   // This is the function responsible for sending the form inputs to the backend
+
+  /**
+   * @function logUserIn
+   * Logs User in and redirects to movies
+   */
   logUserIn(): void {
     this.fetchApiData.userLogin(this.userCredentials).subscribe(
       (result) => {

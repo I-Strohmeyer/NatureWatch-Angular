@@ -26,7 +26,11 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * responsible for sending the form inputs to the backend
+   * @returns user object
+   * @function registerUser
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {
@@ -36,8 +40,6 @@ export class RegistrationComponent implements OnInit {
         this.snackBar.open(result, 'User registered successfully!', {
           duration: 2000,
         });
-        //localStorage.setItem('username', result.Username);
-        //localStorage.setItem('userid', result._id);
       },
       (result) => {
         console.log(result);

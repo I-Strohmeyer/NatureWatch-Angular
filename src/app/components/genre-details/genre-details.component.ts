@@ -7,6 +7,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./genre-details.component.scss'],
 })
 export class GenreDetailsComponent implements OnInit {
+  /**
+   * Dialog receives data from outside
+   * @param data
+   * @param dialogRef
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
@@ -18,6 +23,7 @@ export class GenreDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //CLoses dialog
   close(): void {
     this.dialogRef.close();
   }

@@ -25,6 +25,12 @@ export class UserEditComponent implements OnInit {
     this.getUserData();
   }
 
+  /**
+   * Get single user by id
+   * @function getUserData
+   * @params userid
+   * @returns user object
+   */
   getUserData(): void {
     const userid = localStorage.getItem('userid');
     this.fetchApiData.getUser(userid).subscribe((resp: any) => {
@@ -34,6 +40,12 @@ export class UserEditComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates user information
+   * @function editUser
+   * @params userid
+   * @returns user object
+   */
   editUser(): void {
     const userid = localStorage.getItem('userid');
     this.fetchApiData.updateUser(userid, this.user).subscribe((resp: any) => {

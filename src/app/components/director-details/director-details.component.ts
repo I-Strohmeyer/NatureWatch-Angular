@@ -7,6 +7,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./director-details.component.scss'],
 })
 export class DirectorDetailsComponent implements OnInit {
+  /**
+   * Dialog receives data from outside
+   * @param data
+   * @param dialogRef
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
@@ -19,6 +24,7 @@ export class DirectorDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //CLoses dialog
   close(): void {
     this.dialogRef.close();
   }
