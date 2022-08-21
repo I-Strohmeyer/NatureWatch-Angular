@@ -1,6 +1,21 @@
-# NatureWatchAngular
+# NatureWatchAngular :leaves:
 
+Client-side for the NatureWatch app. Registered users can browse a selection of movies.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+
+## Tech-Stack:
+
+- Angular 2+
+- Angular Material
+- [Movie-API](https://github.com/I-Strohmeyer/NatureWatch)
+
+## Features
+
+- User can register and login
+- User can view movies
+- User can click on movie to view further details (genre, director etc)
+- User can (un)favorite movies
+- User can update or delete their account
 
 ## Development server
 
