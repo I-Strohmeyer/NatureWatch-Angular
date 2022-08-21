@@ -1,4 +1,4 @@
-# NatureWatchAngular :leaves:
+# NatureWatch-Angular :leaves:
 
 Client-side for the NatureWatch app. Registered users can browse a selection of movies.
 
