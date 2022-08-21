@@ -1,6 +1,7 @@
 # NatureWatchAngular :leaves:
 
 Client-side for the NatureWatch app. Registered users can browse a selection of movies.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
 ## Tech-Stack:
