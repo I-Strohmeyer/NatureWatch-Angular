@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
  * Declaring the api url that will provide data for the client app
  * @type string
  */
-const apiUrl = 'https://naturewatch-app.herokuapp.com/';
+const apiUrl = 'https://naturewatch-api.onrender.com/';
 
 const token = localStorage.getItem('token');
 const userID = localStorage.getItem('userid');
